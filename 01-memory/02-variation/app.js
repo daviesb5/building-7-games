@@ -31,10 +31,34 @@ document.addEventListener('DOMContentLoaded', () => {
             img: 'img/1-latin/uc/s-accent.png'
         },
         {
+            latin_name: 'v',
+            cyrillic_name: '',
+            folder: '1-latin',
+            img: 'img/1-latin/uc/v.png'
+        },
+        {
             latin_name: 'b',
             cyrillic_name: 'v',
             folder: '2-dif',
             img: 'img/2-dif/uc/b_or_v.png'
+        },
+        {
+            latin_name: 'b',
+            cyrillic_name: 'v',
+            folder: '2-dif',
+            img: 'img/2-dif/uc/b_or_v.png'
+        },
+        {
+            latin_name: 'c',
+            cyrillic_name: 's',
+            folder: '2-dif',
+            img: 'img/2-dif/uc/c_or_s.png'
+        },
+        {
+            latin_name: 'c',
+            cyrillic_name: 's',
+            folder: '2-dif',
+            img: 'img/2-dif/uc/c_or_s.png'
         },
         {
             latin_name: 'c',
@@ -49,10 +73,28 @@ document.addEventListener('DOMContentLoaded', () => {
             img: 'img/2-dif/uc/c-accent_or_s-accent.png'
         },
         {
+            latin_name: 'c-accent',
+            cyrillic_name: 's-accent',
+            folder: '2-dif',
+            img: 'img/2-dif/uc/c-accent_or_s-accent.png'
+        },
+        {
             latin_name: 'h',
             cyrillic_name: 'n',
             folder: '2-dif',
             img: 'img/2-dif/uc/h_or_n.png'
+        },
+        {
+            latin_name: 'h',
+            cyrillic_name: 'n',
+            folder: '2-dif',
+            img: 'img/2-dif/uc/h_or_n.png'
+        },
+        {
+            latin_name: 'p',
+            cyrillic_name: 'r',
+            folder: '2-dif',
+            img: 'img/2-dif/uc/p_or_r.png'
         },
         {
             latin_name: 'p',
@@ -67,34 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
             img: 'img/2-dif/uc/s_or_d-z.png'
         },
         {
-            latin_name: 'b',
-            cyrillic_name: 'v',
+            latin_name: 's',
+            cyrillic_name: 'd-z',
             folder: '2-dif',
-            img: 'img/2-dif/uc/b_or_v.png'
-        },
-        {
-            latin_name: 'c',
-            cyrillic_name: 's',
-            folder: '2-dif',
-            img: 'img/2-dif/uc/c_or_s.png'
-        },
-        {
-            latin_name: 'c-accent',
-            cyrillic_name: 's-accent',
-            folder: '2-dif',
-            img: 'img/2-dif/uc/c-accent_or_s-accent.png'
-        },
-        {
-            latin_name: 'h',
-            cyrillic_name: 'n',
-            folder: '2-dif',
-            img: 'img/2-dif/uc/h_or_n.png'
-        },
-        {
-            latin_name: 'p',
-            cyrillic_name: 'r',
-            folder: '2-dif',
-            img: 'img/2-dif/uc/p_or_r.png'
+            img: 'img/2-dif/uc/s_or_d-z.png'
         },
         {
             latin_name: 's',
@@ -104,15 +122,21 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             latin_name: '',
-            cyrillic_name: 'c-accent',
+            cyrillic_name: 'b',
             folder: '3-cyrillic',
-            img: 'img/3-cyrillic/uc/c-accent.png'
+            img: 'img/3-cyrillic/uc/b.png'
         },
         {
             latin_name: '',
             cyrillic_name: 'c',
             folder: '3-cyrillic',
             img: 'img/3-cyrillic/uc/c.png'
+        },
+        {
+            latin_name: '',
+            cyrillic_name: 'c-accent',
+            folder: '3-cyrillic',
+            img: 'img/3-cyrillic/uc/c-accent.png'
         },
         {
             latin_name: '',
