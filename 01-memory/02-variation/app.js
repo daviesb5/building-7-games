@@ -163,8 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //create your board
     function createBoard() {
-        for (let i = 0; i < cardArray.length; i++){
-            // alert("i: " + i);
+        for (let i = 0; i < cardArray.length; i++) {
             var card = document.createElement('img')
             var latin = document.createElement('latin_name')
             var cyrillic = document.createElement('cyrillic_name')
@@ -177,13 +176,68 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // check for matches
-    function checkForMatch() {
+    function checkFilePath() {
+        var matchFound = false;
         var cards = document.querySelectorAll('img')
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
-        alert("cardsChosenId[0]: " + optionOneId)
-        alert("cardsChosenId[1]: " + optionTwoId)
-        if(cardsChosen[0] === cardsChosen[1]){
+
+        // shows file paths
+        // alert("cardsChosenId[0]: " + cardArray[optionOneId].img)
+        // alert("cardsChosenId[1]: " + cardArray[optionTwoId].img)
+
+        // main comparison functionality
+        if (cardArray[optionOneId].img === cardArray[optionTwoId].img) { // same file path
+            alert("cardsChosenId[0]: " + cardArray[optionOneId].img)
+        alert("cardsChosenId[1]: " + cardArray[optionTwoId].img)
+            // homoglyph match
+            alert("Try to match each Latin letter with its Cyrillic Equivalent");
+        } else if (cardArray[optionOneId].img !== cardArray[optionTwoId].img){ // different file paths
+            alert("Let's take a look");
+            /*
+            if (cardArray[optionOneId].folder === "1 - latin" && cardArray[optionTwoId].folder === "1 - latin") {
+                showResults(matchFound, optionOneId, optionTwoId, cards);
+                return;
+            } else if (cardArray[optionOneId].folder === "3-cyrillic" && cardArray[optionTwoId].folder === "3-cyrillic") {
+                showResults(matchFound, optionOneId, optionTwoId, cards);
+                return;
+            } else {
+                alert("Let's take a look");
+            }
+            */
+            checkForMatch(matchFound, optionOneId, optionTwoId);
+        }
+        // show results
+        showResults(matchFound, optionOneId, optionTwoId, cards);
+    }
+
+    function checkForMatch(boolVal, optionOneId, optionTwoId) {
+        alert("cardArray[optionOneId].folder: " + cardArray[optionOneId].folder);
+        alert("cardArray[optionTwoId].folder: " + cardArray[optionTwoId].folder);
+        if (cardArray[optionOneId].folder === "1 - latin") { // Latin to Cyrillic
+            matchFound = compareChar(cardArray[optionOneId].latin_name, cardArray[optionTwoId].cyrillic_name, boolVal);
+        } else if (cardArray[optionOneId].folder === "3-cyrillic") { // Cyrillic to Latin
+            matchFound = compareChar(cardArray[optionOneId].cyrillic_name, cardArray[optionTwoId].latin_name, boolVal);
+        } else { // Should be folder '2-dif'
+            matchFound = compareChar(cardArray[optionOneId].latin_name, cardArray[optionTwoId].cyrillic_name, boolVal);
+            matchFound = compareChar(cardArray[optionOneId].cyrillic_name, cardArray[optionTwoId].latin_name, boolVal);
+        }
+    }
+
+    // Compares Letters
+    function compareChar(letter1, letter2, boolVal) {
+        if (letter1 === letter2) {
+            alert("cardsChosenId[0]: " + letter1)
+            alert("cardsChosenId[1]: " + letter2)
+            return true;
+        } else {
+            return boolVal;
+        }
+    }
+
+    // shows results
+    function showResults(boolVal, optionOneId, optionTwoId, cards) {
+        if (boolVal === true) {
             alert("You got a match!")
             cards[optionOneId].setAttribute('src', 'img/white.png')
             cards[optionTwoId].setAttribute('src', 'img/white.png')
@@ -196,21 +250,21 @@ document.addEventListener('DOMContentLoaded', () => {
         cardsChosen = []
         cardsChosenId = []
         resultDisplay.textContent = cardsWon.length
-        if (cardsWon.length === cardArray.length/2) {
+        if (cardsWon.length === cardArray.length / 2) {
             resultDisplay.textContent = 'Congrats, you found them all!'
         }
     }
 
     // flip your card
-    function flipcard(){
+    function flipcard() {
         var cardId = this.getAttribute('data-id')
         cardsChosen.push(cardArray[cardId])
         cardsChosenId.push(cardId)
         this.setAttribute('src', cardArray[cardId].img)
-        if (cardsChosen.length === 2){
-            setTimeout(checkForMatch, 500)
+        if (cardsChosen.length === 2) {
+            setTimeout(checkFilePath, 500)
         }
     }
-    
+
     createBoard()
 })
